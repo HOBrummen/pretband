@@ -27,6 +27,8 @@ export function Navbar() {
 					<img
 						src="./logo.png"
 						alt="Logo"
+						width="48"
+						height="48"
 						className="h-12 w-auto rounded-full transition-transform duration-300 group-hover:rotate-12"
 					/>
 				</a>
@@ -93,6 +95,7 @@ export function Navbar() {
 				id="mobile-menu"
 				className={`fixed inset-0 z-60 flex flex-col items-center justify-center space-y-8 bg-pret-red/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
 				aria-hidden={!isMenuOpen}
+				inert={!isMenuOpen}
 			>
 				<button
 					type="button"
@@ -139,7 +142,7 @@ export function Navbar() {
 				</a>
 				<a
 					href={`${location.origin}#contact`}
-					className="font-display text-5xl text-pret-yellow transition-colors hover:text-white focus-visible:text-white"
+					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 					onClick={toggleMobileMenu}
 				>
 					{t("navbar.book_now")}

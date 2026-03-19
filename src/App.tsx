@@ -18,8 +18,8 @@ const Contact = lazy(() => import("./components/Contact").then((m) => ({ default
 const Members = lazy(() => import("./components/Members").then((m) => ({ default: m.Members })));
 const Footer = lazy(() => import("./components/Footer").then((m) => ({ default: m.Footer })));
 
-function SectionLoader() {
-	return <div className="h-40 w-full animate-pulse bg-white/5 rounded-3xl" />;
+function SectionLoader({ height = "h-40" }: { height?: string }) {
+	return <div className={`${height} w-full animate-pulse bg-white/5 rounded-3xl`} />;
 }
 
 function App() {
@@ -84,45 +84,8 @@ function App() {
 	});
 
 	return (
-		<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
+		<>
 			<BackgroundLayer />
-			{/* Party Backdrop */}
-			<div
-				className="pointer-events-none fixed inset-0 z-100 bg-noise"
-				aria-hidden="true"
-			></div>
-			<div
-				id="confetti-canvas"
-				className="pointer-events-none fixed inset-0 z-90"
-				aria-hidden="true"
-			></div>
-
-			<Navbar />
-
-			<main id="main-content">
-				<Hero onLaunchConfetti={launchConfetti} />
-				<Suspense fallback={<SectionLoader />}>
-					<About />
-				</Suspense>
-				<Suspense fallback={<SectionLoader />}>
-					<Members />
-				</Suspense>
-				<Suspense fallback={<SectionLoader />}>
-					<ErrorBoundary>
-						<Agenda />
-					</ErrorBoundary>
-				</Suspense>
-				<Suspense fallback={<SectionLoader />}>
-					<ErrorBoundary>
-						<Contact />
-					</ErrorBoundary>
-				</Suspense>
-			</main>
-
-			<Suspense fallback={null}>
-				<Footer onOpenPrivacy={open} />
-			</Suspense>
-
 			<AnalyticsConsentPopover
 				isOpen={isOpen}
 				consent={consent}
@@ -137,7 +100,47 @@ function App() {
 					reloadTimerRef.current = setTimeout(() => location.reload(), 1);
 				}}
 			/>
-		</div>
+			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
+				{/* Party Backdrop */}
+				<div
+					className="pointer-events-none fixed inset-0 z-100 bg-noise"
+					aria-hidden="true"
+				></div>
+				<div
+					id="confetti-canvas"
+					className="pointer-events-none fixed inset-0 z-90"
+					aria-hidden="true"
+				></div>
+
+				<Navbar />
+
+				<main id="main-content">
+					<Hero onLaunchConfetti={launchConfetti} />
+					<Suspense fallback={<SectionLoader height="h-[400px]" />}>
+						<About />
+					</Suspense>
+					<Suspense fallback={<SectionLoader height="h-[600px]" />}>
+						<Members />
+					</Suspense>
+					<Suspense fallback={<SectionLoader height="h-[400px]" />}>
+						<ErrorBoundary>
+							<Agenda />
+						</ErrorBoundary>
+					</Suspense>
+					<Suspense fallback={<SectionLoader height="h-[500px]" />}>
+						<ErrorBoundary>
+							<Contact />
+						</ErrorBoundary>
+					</Suspense>
+				</main>
+
+				<Suspense fallback={null}>
+					<Footer onOpenPrivacy={open} />
+				</Suspense>
+
+
+			</div>
+		</>
 	);
 }
 

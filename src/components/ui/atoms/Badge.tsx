@@ -19,7 +19,7 @@ export function Badge({
 		"inline-flex items-center justify-center font-display uppercase font-black";
 
 	const variants = {
-		red: "bg-pret-red text-white",
+		red: "bg-[#D42A29] text-white",
 		yellow: "bg-pret-yellow text-pret-dark",
 		dark: "bg-pret-dark text-white",
 	};

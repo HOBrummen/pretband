@@ -23,7 +23,9 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 					<img
 						src="./logo.png"
 						alt="Pretband Logo"
-						className="mx-auto h-16 rounded-full opacity-50 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0"
+						width="64"
+						height="64"
+						className="mx-auto h-16 w-16 rounded-full opacity-50 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0"
 					/>
 				</a>
 			</div>

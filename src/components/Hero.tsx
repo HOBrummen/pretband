@@ -52,7 +52,6 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 						className="group relative z-20 cursor-pointer rounded-full transition-transform hover:scale-105 focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-pret-yellow active:scale-95"
 						onClick={onLaunchConfetti}
 						tabIndex={0}
-						aria-label={t("hero.click_me")}
 						onKeyDown={(e) => {
 							if (e.key === "Enter" || e.key === " ") {
 								e.preventDefault();
@@ -64,7 +63,9 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 						<img
 							src="./logo.png"
 							alt="Pretband Logo"
-							className="relative z-10 mx-auto h-48 rounded-full drop-shadow-[0_0_40px_rgba(235,182,77,0.3)] transition-all group-hover:rotate-3 md:h-72 lg:h-80"
+							width="320"
+							height="320"
+							className="relative z-10 mx-auto h-48 w-48 rounded-full drop-shadow-[0_0_40px_rgba(235,182,77,0.3)] transition-all group-hover:rotate-3 md:h-72 md:w-72 lg:h-80 lg:w-80"
 						/>
 						<Badge
 							animation="bounce"
@@ -89,20 +90,20 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 
 				{/* Narrative - Wrapped in a Red Block */}
 				<div className="relative mx-auto mb-16 max-w-4xl rotate-1 transform">
-					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-pret-red shadow-2xl"></div>
+					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-[#D42A29] shadow-2xl"></div>
 					<div className="absolute -inset-4 rotate-1 rounded-5xl border-4 border-pret-yellow opacity-50"></div>
 
 					<p className="relative z-10 p-8 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
 						{t("hero.description_1")}
-						<span className="px-2 text-pret-yellow italic">
+						<span className="px-2 text-white italic underline decoration-pret-yellow decoration-2 underline-offset-4">
 							{t("hero.not")}
 						</span>
 						{t("hero.description_2")}
-						<span className="px-2 text-pret-yellow underline decoration-2 decoration-pret-yellow decoration-wavy underline-offset-8">
+						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow decoration-wavy underline-offset-8">
 							{t("hero.vibe")}
 						</span>
 						{t("hero.description_3")}
-						<span className="px-2 text-pret-yellow">{t("hero.party")}</span>
+						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow underline-offset-4">{t("hero.party")}</span>
 						{t("hero.description_4")}
 						<span className="mt-4 block animate-lamp-flicker text-5xl text-pret-yellow italic md:text-7xl lg:text-8xl">
 							{t("hero.noise")}!

@@ -31,92 +31,58 @@ export default {
 			keyframes: {
 				wiggle: {
 					"0%, 100%": {
-						"--pret-wiggle": "-3deg",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) rotate(var(--pret-wiggle, 0deg)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "rotate(-3deg)",
 					},
 					"50%": {
-						"--pret-wiggle": "3deg",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) rotate(var(--pret-wiggle, 0deg)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "rotate(3deg)",
 					},
 				},
 				float: {
 					"0%, 100%": {
-						"--pret-float-y": "0px",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) translateY(var(--pret-float-y, 0px)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "translateY(0px)",
 					},
 					"50%": {
-						"--pret-float-y": "-20px",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) translateY(var(--pret-float-y, 0px)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "translateY(-20px)",
 					},
 				},
 				tilt: {
 					"0%, 50%, 100%": {
-						"--pret-tilt": "0deg",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) rotate(var(--pret-tilt, 0deg)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "rotate(0deg)",
 					},
 					"25%": {
-						"--pret-tilt": "1deg",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) rotate(var(--pret-tilt, 0deg)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "rotate(1deg)",
 					},
 					"75%": {
-						"--pret-tilt": "-1deg",
-						transform:
-							"translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) rotate(var(--pret-tilt, 0deg)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+						transform: "rotate(-1deg)",
 					},
 				},
 				lampFlicker: {
 					"0%, 58%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 10px rgba(235, 182, 77, 0.55)) drop-shadow(0 0 26px rgba(235, 182, 77, 0.25))",
-						textShadow: "0 0 15px rgba(235, 182, 77, 0.6)",
 					},
-					"59%": { opacity: "0.55", filter: "none", textShadow: "none" },
+					"59%": { opacity: "0.55" },
 					"60%": {
 						opacity: "1",
-						filter: "drop-shadow(0 0 12px rgba(235, 182, 77, 0.65))",
-						textShadow: "0 0 18px rgba(235, 182, 77, 0.75)",
 					},
-					"61%": { opacity: "0.12", filter: "none", textShadow: "none" },
+					"61%": { opacity: "0.12" },
 					"62%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 10px rgba(235, 182, 77, 0.55)) drop-shadow(0 0 26px rgba(235, 182, 77, 0.25))",
-						textShadow: "0 0 15px rgba(235, 182, 77, 0.6)",
 					},
-					"64%": { opacity: "0.02", filter: "none", textShadow: "none" },
+					"64%": { opacity: "0.02" },
 					"66%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 16px rgba(235, 182, 77, 0.85)) drop-shadow(0 0 44px rgba(235, 182, 77, 0.35))",
-						textShadow: "0 0 26px rgba(235, 182, 77, 0.95)",
 					},
-					"72%": { opacity: "0.35", filter: "none", textShadow: "none" },
+					"72%": { opacity: "0.35" },
 					"74%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 12px rgba(235, 182, 77, 0.65)) drop-shadow(0 0 30px rgba(235, 182, 77, 0.25))",
-						textShadow: "0 0 18px rgba(235, 182, 77, 0.75)",
 					},
-					"78%": { opacity: "0.06", filter: "none", textShadow: "none" },
+					"78%": { opacity: "0.06" },
 					"80%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 10px rgba(235, 182, 77, 0.55)) drop-shadow(0 0 26px rgba(235, 182, 77, 0.25))",
-						textShadow: "0 0 15px rgba(235, 182, 77, 0.6)",
 					},
-					"86%": { opacity: "0.25", filter: "none", textShadow: "none" },
+					"86%": { opacity: "0.25" },
 					"88%, 100%": {
 						opacity: "1",
-						filter:
-							"drop-shadow(0 0 10px rgba(235, 182, 77, 0.55)) drop-shadow(0 0 26px rgba(235, 182, 77, 0.25))",
-						textShadow: "0 0 15px rgba(235, 182, 77, 0.6)",
 					},
 				},
 			},

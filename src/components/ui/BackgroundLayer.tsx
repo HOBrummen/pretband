@@ -4,9 +4,18 @@ export function BackgroundLayer() {
 	return (
 		<div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 			{/* Large Blurry Blobs for the "Splash" of colors */}
-			<div className="absolute top-[-10%] -left-20 h-240 w-240 animate-pulse-slow rounded-full bg-pret-red/10 blur-[200px]"></div>
-			<div className="absolute top-1/2 -right-40 h-200 w-200 animate-pulse-slow rounded-full bg-pret-yellow/10 blur-[180px] [animation-delay:1000ms]"></div>
-			<div className="absolute -bottom-20 left-1/4 h-240 w-240 animate-pulse-slow rounded-full bg-pret-red/10 blur-[200px] [animation-delay:2000ms]"></div>
+			<div 
+				className="fixed -top-20 -left-40 h-240 w-240 rounded-full bg-[#E53433]/10 blur-[200px]"
+				style={{ 
+					contain: 'strict'
+				}}
+			></div>
+			<div 
+				className="fixed -bottom-20 -right-40 h-240 w-240 rounded-full bg-[#EBB64D]/10 blur-[200px]"
+				style={{ 
+					contain: 'strict'
+				}}
+			></div>
 
 			{/* Global Background Decorations that cross sections */}
 			<Decoration
