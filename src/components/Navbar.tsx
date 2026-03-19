@@ -25,7 +25,7 @@ export function Navbar() {
 					aria-label={t("navbar.band")}
 				>
 					<img
-						src="/logo.png"
+						src="./logo.png"
 						alt="Logo"
 						className="h-12 w-auto rounded-full transition-transform duration-300 group-hover:rotate-12"
 					/>

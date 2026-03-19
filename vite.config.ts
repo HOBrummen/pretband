@@ -1,20 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig, loadEnv, type Plugin } from "vite";
-
-type Tag = {
-	tag: string;
-	injectTo: string;
-	attrs?: {
-		name?: string;
-		rel?: string;
-		content?: string;
-		href?: string;
-		property?: string;
-		type?: string;
-	};
-	children?: string;
-};
+import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from "vite";
 
 function securityMetaPlugin(command: "build" | "serve"): Plugin | null {
 	if (command !== "build") return null;
@@ -58,7 +44,7 @@ function securityMetaPlugin(command: "build" | "serve"): Plugin | null {
 						content: "strict-origin-when-cross-origin",
 					},
 				},
-			] as Tag[];
+			] as HtmlTagDescriptor[];
 		},
 	};
 }
@@ -87,7 +73,7 @@ function seoPlugin(command: "build" | "serve", siteUrl: string): Plugin | null {
 	return {
 		name: "pret-seo",
 		transformIndexHtml(html) {
-			const tags: Tag[] = [
+			const tags: HtmlTagDescriptor[] = [
 				{
 					tag: "meta",
 					injectTo: "head",

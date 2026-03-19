@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Badge } from "./ui/atoms/Badge";
 import { Decoration } from "./ui/atoms/Decoration";
 import { Heading } from "./ui/atoms/Heading";
 import { FeatureCard } from "./ui/molecules/FeatureCard";
@@ -34,15 +33,6 @@ export function About() {
 							className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
 						/>
 					</div>
-					{/* Floating decorations */}
-					<Badge
-						animation="wiggle"
-						variant="yellow"
-						size="xl"
-						className="absolute -top-10 -right-10"
-					>
-						{t("about.yeah")}
-					</Badge>
 				</div>
 				<div className="text-white">
 					<Heading

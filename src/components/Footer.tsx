@@ -21,7 +21,7 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 					aria-label={t("footer.back_to_top")}
 				>
 					<img
-						src="/logo.png"
+						src="./logo.png"
 						alt="Pretband Logo"
 						className="mx-auto h-16 rounded-full opacity-50 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0"
 					/>

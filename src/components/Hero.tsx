@@ -62,7 +62,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 					>
 						<div className="absolute -inset-8 scale-0 rounded-full bg-pret-yellow/20 blur-3xl transition-transform duration-500 group-hover:scale-100"></div>
 						<img
-							src="/logo.png"
+							src="./logo.png"
 							alt="Pretband Logo"
 							className="relative z-10 mx-auto h-48 rounded-full drop-shadow-[0_0_40px_rgba(235,182,77,0.3)] transition-all group-hover:rotate-3 md:h-72 lg:h-80"
 						/>
