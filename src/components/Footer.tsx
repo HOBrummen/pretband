@@ -41,7 +41,7 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 							<a
 								href={instagramUrl}
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 								className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-white/80 transition-colors hover:border-pret-yellow/60 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 								aria-label={t("footer.instagram")}
 							>
@@ -56,7 +56,7 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 							<a
 								href={tiktokUrl}
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 								className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-white/80 transition-colors hover:border-pret-yellow/60 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 								aria-label={t("footer.tiktok")}
 							>
@@ -73,7 +73,7 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 					<a
 						href="https://harmonieorkestbrummen.nl"
 						target="_blank"
-						rel="noreferrer"
+						rel="noopener noreferrer"
 						className="rounded-lg px-1 underline underline-offset-4 transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 					>
 						harmonieorkestbrummen.nl

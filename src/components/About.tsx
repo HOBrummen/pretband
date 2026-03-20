@@ -31,6 +31,8 @@ export function About() {
 						<img
 							src={pretbandImg}
 							alt="The Band"
+							width="600"
+							height="600"
 							className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
 						/>
 					</div>
