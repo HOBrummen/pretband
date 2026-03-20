@@ -9,6 +9,11 @@ declare global {
 			renew: () => void;
 			show: () => void;
 			hide: () => void;
+			consent: {
+				statistics: boolean;
+				marketing: boolean;
+				preferences: boolean;
+			};
 		};
 	}
 }

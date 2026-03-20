@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { useGtm } from "./analytics/useGtm";
@@ -40,10 +40,27 @@ function App() {
 	const gtmTagId = publicEnv.gtmTagId;
 	const cookiebotId = publicEnv.cookiebotId;
 
-	// In auto-blocking mode, we can just let the tags load; Cookiebot will block them
-	// until the user has consented.
-	useGtm(gtmTagId || "", true);
-	useBasinAhoy(basinFormId || "", true);
+	const [hasConsent, setHasConsent] = useState(false);
+
+	useEffect(() => {
+		const updateConsent = () => {
+			setHasConsent(!!window.Cookiebot?.consent?.statistics);
+		};
+
+		window.addEventListener("CookiebotOnAccept", updateConsent);
+		window.addEventListener("CookiebotOnDecline", updateConsent);
+		
+		// Initial check in case it's already loaded
+		updateConsent();
+
+		return () => {
+			window.removeEventListener("CookiebotOnAccept", updateConsent);
+			window.removeEventListener("CookiebotOnDecline", updateConsent);
+		};
+	}, []);
+
+	useGtm(gtmTagId || "", hasConsent);
+	useBasinAhoy(basinFormId || "", hasConsent);
 
 	useEffect(() => {
 		return () => {
