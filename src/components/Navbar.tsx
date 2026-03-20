@@ -52,7 +52,7 @@ export function Navbar() {
 					>
 						{t("navbar.when")}
 					</a>
-					<Button href="#contact" variant="secondary" size="md">
+					<Button className="book-now" href="#contact" variant="secondary" size="md">
 						{t("navbar.book_now")}
 					</Button>
 					<Button
@@ -143,7 +143,7 @@ export function Navbar() {
 				</a>
 				<a
 					href="./#contact"
-					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow book-now"
 					onClick={toggleMobileMenu}
 				>
 					{t("navbar.book_now")}

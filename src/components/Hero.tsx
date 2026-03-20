@@ -117,7 +117,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 
 				{/* Action Area */}
 				<div className="flex flex-col items-center justify-center gap-10 md:flex-row">
-					<Button href="#contact" variant="primary" size="xl" className="group">
+					<Button href="#contact" variant="primary" size="xl" className="group book-now">
 						<span className="inline-block transition-transform group-hover:scale-110">
 							{t("hero.book_now")}
 						</span>
