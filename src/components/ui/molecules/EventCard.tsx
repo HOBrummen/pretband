@@ -43,6 +43,7 @@ export function EventCard({
 					<Badge
 						variant={variant === "yellow" ? "red" : "yellow"}
 						animation="wiggle"
+						size="lg"
 						className="mb-4"
 					>
 						{date}
@@ -59,11 +60,13 @@ export function EventCard({
 					</p>
 				</div>
 				<div className="text-center md:text-right">
-					<span
-						className={`block font-display text-4xl text-white uppercase transition-colors ${textHoverColors[variant]}`}
-					>
-						{time}
-					</span>
+					{time && time.trim() !== "" && time.toUpperCase() !== "TBA" && time.toUpperCase() !== "N.T.B." && (
+						<span
+							className={`block font-display text-2xl text-white uppercase transition-colors ${textHoverColors[variant]}`}
+						>
+							{time}
+						</span>
+					)}
 					<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
 						{status}
 					</span>

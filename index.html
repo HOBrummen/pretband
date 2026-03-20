@@ -2,6 +2,28 @@
 <html lang="nl" class="scroll-smooth">
 
 <head>
+    <!-- Google Consent Mode (must be before gtag/gtm and cookiebot) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    </script>
+
+    <!-- Cookiebot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="%VITE_COOKIEBOT_ID%" data-blockingmode="auto" type="text/javascript"></script>
+
+    <!-- Google Tag Manager -->
+    <script>((w,d,s,l,i)=>{w[l]=w[l]||[];w[l].push({'gtm.start':
+    Date.now(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','%VITE_GTM_TAG_ID%');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -13,6 +35,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_TAG_ID%"
+    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>

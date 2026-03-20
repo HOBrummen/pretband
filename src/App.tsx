@@ -2,13 +2,22 @@ import confetti from "canvas-confetti";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
-import { useGtm } from "./analytics/useGtm";
-import { Cookiebot } from "./components/Cookiebot";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { BackgroundLayer } from "./components/ui/BackgroundLayer";
 import { ErrorBoundary } from "./components/ui/molecules/ErrorBoundary";
 import { publicEnv } from "./config/publicEnv";
+
+declare global {
+	interface Window {
+		Cookiebot?: {
+			renew: () => void;
+			consent?: {
+				statistics: boolean;
+			};
+		};
+	}
+}
 
 // Lazy load components that are not in the initial viewport
 const About = lazy(() =>
@@ -37,8 +46,6 @@ function App() {
 	const { t, i18n } = useTranslation();
 
 	const basinFormId = publicEnv.basinFormId;
-	const gtmTagId = publicEnv.gtmTagId;
-	const cookiebotId = publicEnv.cookiebotId;
 
 	const [hasConsent, setHasConsent] = useState(false);
 
@@ -59,7 +66,6 @@ function App() {
 		};
 	}, []);
 
-	useGtm(gtmTagId || "", hasConsent);
 	useBasinAhoy(basinFormId || "", hasConsent);
 
 	useEffect(() => {
@@ -116,7 +122,6 @@ function App() {
 	return (
 		<>
 			<BackgroundLayer />
-			{cookiebotId && <Cookiebot cbid={cookiebotId} />}
 			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
 				{/* Party Backdrop */}
 				<div
