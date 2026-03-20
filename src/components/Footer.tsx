@@ -93,7 +93,7 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 					{t("privacy.analytics.manage")}
 				</button>
 			)}
-			<p className="mt-6 font-body text-white/40">{t("footer.copyright")}</p>
+			<p className="mt-6 font-body text-white/50">{t("footer.copyright")}</p>
 		</footer>
 	);
 }
