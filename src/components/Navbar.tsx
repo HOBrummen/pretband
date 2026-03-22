@@ -120,34 +120,46 @@ export function Navbar() {
 						/>
 					</svg>
 				</button>
-				<a
-					href="./#wie"
+				<button
+					type="button"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={toggleMobileMenu}
+					onClick={() => {
+						toggleMobileMenu();
+						window.location.href = "./#wie";
+					}}
 				>
 					{t("navbar.band")}
-				</a>
-				<a
-					href="./#leden"
+				</button>
+				<button
+					type="button"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={toggleMobileMenu}
+					onClick={() => {
+						toggleMobileMenu();
+						window.location.href = "./#leden";
+					}}
 				>
 					{t("navbar.members")}
-				</a>
-				<a
-					href="./#agenda"
+				</button>
+				<button
+					type="button"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={toggleMobileMenu}
+					onClick={() => {
+						toggleMobileMenu();
+						window.location.href = "./#agenda";
+					}}
 				>
 					{t("navbar.when")}
-				</a>
-				<a
-					href="./#contact"
+				</button>
+				<button
+					type="button"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow book-now"
-					onClick={toggleMobileMenu}
+					onClick={() => {
+						toggleMobileMenu();
+						window.location.href = "./#contact";
+					}}
 				>
 					{t("navbar.book_now")}
-				</a>
+				</button>
 				<Button
 					variant="outline"
 					size="lg"
