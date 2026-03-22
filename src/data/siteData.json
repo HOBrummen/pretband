@@ -5,15 +5,7 @@
 			{ "key": "trumpets", "names": ["Iris", "Florine", "Diede", "Imre"] },
 			{
 				"key": "clarinets",
-				"names": [
-					"Liesbeth",
-					"Yara",
-					"Carlijn",
-					"Jamy",
-					"Elisa",
-					"Minke",
-					"Marlies"
-				]
+				"names": ["Liesbeth", "Carlijn", "Jamy", "Elisa", "Minke", "Marlies"]
 			},
 			{
 				"key": "low_brass",
@@ -28,9 +20,9 @@
 					"Stefanie",
 					"Janine",
 					"Yvet",
-					"Ilonka",
 					"Erik",
-					"Gerben"
+					"Gerben",
+					"Yara"
 				]
 			},
 			{
