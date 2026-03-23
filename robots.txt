@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://pretband.nl/sitemap.xml
+Sitemap: pretband.nl/sitemap.xml
