@@ -210,9 +210,6 @@ export default defineConfig(({ command, mode }) => {
 			seoPlugin(command, siteUrl),
 			tailwindcss(),
 		].filter(Boolean) as Plugin[],
-		esbuild: {
-			drop: command === "build" ? ["console", "debugger"] : [],
-		},
 		base: "./",
 		build: {
 			outDir: "dist",
