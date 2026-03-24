@@ -14,6 +14,7 @@ export function Contact() {
 	const { t } = useTranslation();
 	const { findEgg } = useEasterEggs();
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [isShaking, setIsShaking] = useState(false);
 	const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 	const [statusMessage, setStatusMessage] = useState<string>("");
 	const [recaptchaToken, setRecaptchaToken] = useState<string>("");
@@ -61,6 +62,18 @@ export function Contact() {
 
 		const form = e.currentTarget;
 		const formData = new FormData(form);
+
+		// Manual validation for the shake effect
+		const name = formData.get("name")?.toString().trim();
+		const email = formData.get("email")?.toString().trim();
+		const message = formData.get("message")?.toString().trim();
+
+		if (!name || !email || !message) {
+			setIsShaking(true);
+			setTimeout(() => setIsShaking(false), 500);
+			setIsSubmitting(false);
+			return;
+		}
 
 		// Honeypot: if this is filled, treat as success but discard.
 		const honeypot = (formData.get("_gotcha") ?? "").toString().trim();
@@ -159,7 +172,8 @@ export function Contact() {
 					{t("contact.description")}
 				</p>
 
-				<div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10">
+				<div className={`mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10 ${isShaking ? "animate-shake border-pret-red shadow-[0_0_80px_rgba(229,52,51,0.3)]" : ""
+					}`}>
 					<form
 						method="POST"
 						action={basinAction}
