@@ -18,6 +18,8 @@ declare global {
 			renew: () => void;
 			consent?: {
 				statistics: boolean;
+				marketing: boolean;
+				preferences: boolean;
 			};
 		};
 	}

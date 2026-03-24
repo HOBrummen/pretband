@@ -66,7 +66,26 @@ export function useRecaptchaV3(siteKey: string, enabled = true) {
 
 	useEffect(() => {
 		if (!stableKey || !enabled) return;
-		void loadRecaptchaV3(stableKey);
+
+		// Cookiebot compliance: only load if consent is granted
+		const checkConsentAndLoad = () => {
+			const hasConsent =
+				window.Cookiebot?.consent?.marketing ||
+				window.Cookiebot?.consent?.preferences;
+
+			if (hasConsent) {
+				void loadRecaptchaV3(stableKey);
+				return true;
+			}
+			return false;
+		};
+
+		if (!checkConsentAndLoad()) {
+			// If no consent yet, wait for the CookiebotOnAccept event
+			window.addEventListener("CookiebotOnAccept", checkConsentAndLoad);
+			return () =>
+				window.removeEventListener("CookiebotOnAccept", checkConsentAndLoad);
+		}
 	}, [stableKey, enabled, loadRecaptchaV3]);
 
 	const execute = useCallback(
