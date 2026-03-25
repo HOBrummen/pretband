@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import logo from "../assets/images/logo.png";
 import { publicEnv } from "../config/publicEnv";
 import { Decoration } from "./ui/atoms/Decoration";
@@ -86,15 +86,22 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 				)}
 
 				<p className="max-w-2xl font-body text-sm text-white/50 leading-relaxed">
-					{t("footer.affiliation")}{" "}
-					<a
-						href="https://harmonieorkestbrummen.nl"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="rounded-lg px-1 underline underline-offset-4 transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
-					>
-						harmonieorkestbrummen.nl
-					</a>
+					<Trans
+						i18nKey="footer.affiliation"
+						components={{
+							affiliateLink: (
+								<a
+									href="https://harmonieorkestbrummen.nl"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Harmonie Orkest Brummen website"
+									className="rounded-lg px-1 underline underline-offset-4 transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+								>
+									{" "}
+								</a>
+							),
+						}}
+					/>
 				</p>
 			</div>
 
@@ -107,7 +114,9 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 					{t("privacy.analytics.manage")}
 				</button>
 			)}
-			<p className="mt-6 font-body text-white/50">{t("footer.copyright")}</p>
+			<p className="mt-6 font-body text-white/50">
+				{t("footer.copyright", { year: new Date().getFullYear() })}
+			</p>
 
 			<Decoration
 				type="trumpet"

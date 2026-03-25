@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { publicEnv } from "../config/publicEnv";
 import { useEasterEggs } from "../context/EasterEggContext";
 import { useRecaptchaV3 } from "../security/useRecaptchaV3";
@@ -267,25 +267,31 @@ export function Contact() {
 						)}
 
 						<p className="mt-8 text-center font-body text-sm text-white/50 leading-relaxed">
-							{t("contact.form.recaptcha_notice")}{" "}
-							<a
-								href="https://policies.google.com/privacy"
-								target="_blank"
-								rel="noreferrer"
-								className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
-							>
-								{t("contact.form.recaptcha_privacy")}
-							</a>{" "}
-							{t("contact.form.recaptcha_and")}{" "}
-							<a
-								href="https://policies.google.com/terms"
-								target="_blank"
-								rel="noreferrer"
-								className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
-							>
-								{t("contact.form.recaptcha_terms")}
-							</a>
-							.
+							<Trans
+								i18nKey="contact.form.recaptcha_notice"
+								components={{
+									privacyLink: (
+										<a
+											href="https://policies.google.com/privacy"
+											target="_blank"
+											rel="noreferrer"
+											className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
+										>
+											{" "}
+										</a>
+									),
+									termsLink: (
+										<a
+											href="https://policies.google.com/terms"
+											target="_blank"
+											rel="noreferrer"
+											className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
+										>
+											{" "}
+										</a>
+									),
+								}}
+							/>
 						</p>
 					</form>
 				</div>

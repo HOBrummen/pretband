@@ -11,14 +11,7 @@
 	"hero": {
 		"click_me": "KLIK HIER!",
 		"tagline": "DE LEUKSTE UITVINDING SINDS HET GESNEDEN BROOD!",
-		"description_1": "Wij zijn ",
-		"not": "GEEN",
-		"description_2": " gewoon orkest. Wij zijn ",
-		"vibe": "PRETTIG-GESTOORD",
-		"description_3": ", een ",
-		"party": "FEEST",
-		"description_4": " en een bak ",
-		"noise": "HERRIE",
+		"narrative": "Wij zijn <italic>GEEN</italic> gewoon orkest. Wij zijn <wavy>PRETTIG-GESTOORD</wavy>, een <plain>FEEST</plain> en een bak <noise>HERRIE</noise>",
 		"book_now": "NU BOEKEN!",
 		"check_chaos": "Check de chaos"
 	},
@@ -75,10 +68,7 @@
 			"error_generic": "Er ging iets mis. Probeer het opnieuw.",
 			"recaptcha_error": "Spamcontrole mislukt. Probeer het opnieuw.",
 			"or_email": "Of mail ons",
-			"recaptcha_notice": "Deze site wordt beschermd door reCAPTCHA en het Google",
-			"recaptcha_privacy": "Privacybeleid",
-			"recaptcha_and": "en de",
-			"recaptcha_terms": "Servicevoorwaarden zijn van toepassing"
+			"recaptcha_notice": "Deze site wordt beschermd door reCAPTCHA en het Google <privacyLink>Privacybeleid</privacyLink> en <termsLink>Servicevoorwaarden zijn van toepassing</termsLink>."
 		}
 	},
 	"privacy": {
@@ -101,8 +91,8 @@
 		"follow": "Volg",
 		"instagram": "Instagram",
 		"tiktok": "TikTok",
-		"affiliation": "Pretband is onderdeel van",
-		"copyright": "© 2026 PRETBAND | GEEN RECHTEN ONTLEEND AAN DE CHAOS",
+		"affiliation": "Pretband is onderdeel van <affiliateLink>harmonieorkestbrummen.nl</affiliateLink>",
+		"copyright": "© {{year}} PRETBAND | GEEN RECHTEN ONTLEEND AAN DE CHAOS",
 		"back_to_top": "Terug naar boven"
 	},
 	"errors": {

@@ -11,14 +11,7 @@
 	"hero": {
 		"click_me": "CLICK ME!",
 		"tagline": "THE BEST INVENTION SINCE SLICED BREAD!",
-		"description_1": "We are ",
-		"not": "NOT",
-		"description_2": " a normal orchestra. We are ",
-		"vibe": "PLEASANTLY INSANE",
-		"description_3": ", a ",
-		"party": "PARTY",
-		"description_4": " and a lot of ",
-		"noise": "NOISE",
+		"narrative": "We are <italic>NOT</italic> a normal orchestra. We are <wavy>PLEASANTLY INSANE</wavy>, a <plain>PARTY</plain> and a lot of <noise>NOISE</noise>",
 		"book_now": "BOOK NOW!",
 		"check_chaos": "Check the chaos"
 	},
@@ -75,10 +68,7 @@
 			"error_generic": "Something went wrong. Please try again.",
 			"recaptcha_error": "Spam check failed. Please try again.",
 			"or_email": "Or email us",
-			"recaptcha_notice": "This site is protected by reCAPTCHA and the Google",
-			"recaptcha_privacy": "Privacy Policy",
-			"recaptcha_and": "and",
-			"recaptcha_terms": "Terms of Service apply"
+			"recaptcha_notice": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service apply</termsLink>."
 		}
 	},
 	"privacy": {
@@ -101,8 +91,8 @@
 		"follow": "Follow",
 		"instagram": "Instagram",
 		"tiktok": "TikTok",
-		"affiliation": "Pretband is part of",
-		"copyright": "© 2026 PRETBAND | NO RIGHTS DERIVED FROM THE CHAOS",
+		"affiliation": "Pretband is part of <affiliateLink>harmonieorkestbrummen.nl</affiliateLink>",
+		"copyright": "© {{year}} PRETBAND | NO RIGHTS DERIVED FROM THE CHAOS",
 		"back_to_top": "Back to top"
 	},
 	"errors": {
