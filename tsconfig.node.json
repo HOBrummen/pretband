@@ -3,7 +3,11 @@
 		"composite": true,
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"outDir": "./node_modules/.cache/tsc-node"
 	},
-	"include": ["vite.config.ts", "vite-plugins/**/*.ts"]
+	"include": [
+		"vite.config.ts",
+		"vite-plugins/**/*"
+	]
 }

@@ -1,0 +1,17 @@
+// tsconfig.test.json (or your vitest tsconfig)
+{
+	"extends": "./tsconfig.json",
+	"references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
+	],
+	"include": [
+		"src/**/*",
+		"vite-plugins/**/*"
+	],
+	"compilerOptions": {
+		"composite": false,
+		"noEmit": true
+	}
+}

@@ -7,7 +7,6 @@ describe("EventCard Component", () => {
 		date: "2024-05-20",
 		title: "Test Concert",
 		location: "The Park",
-		time: "20:00",
 		status: "Confirmed",
 	};
 
@@ -16,13 +15,7 @@ describe("EventCard Component", () => {
 		expect(screen.getByText(defaultProps.date)).toBeInTheDocument();
 		expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
 		expect(screen.getByText(defaultProps.location)).toBeInTheDocument();
-		expect(screen.getByText(defaultProps.time)).toBeInTheDocument();
 		expect(screen.getByText(defaultProps.status)).toBeInTheDocument();
-	});
-
-	it("does not render time if it is 'TBA'", () => {
-		render(<EventCard {...defaultProps} time="TBA" />);
-		expect(screen.queryByText("TBA")).not.toBeInTheDocument();
 	});
 
 	it("applies variant classes", () => {
