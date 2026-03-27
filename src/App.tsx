@@ -1,7 +1,7 @@
 import confetti from "canvas-confetti";
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
@@ -254,7 +254,7 @@ function App() {
 			<ToastProvider>
 				<EasterEggProvider>
 					<AchievementOverlay />
-					<BrowserRouter>
+					<HashRouter>
 						<Routes>
 							<Route path="/" element={<PublicSite />} />
 							<Route
@@ -266,7 +266,7 @@ function App() {
 								}
 							/>
 						</Routes>
-					</BrowserRouter>
+					</HashRouter>
 				</EasterEggProvider>
 			</ToastProvider>
 		</DataProvider>
