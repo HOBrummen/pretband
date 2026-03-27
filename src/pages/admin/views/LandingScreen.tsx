@@ -64,7 +64,7 @@ export function LandingScreen({
 						icon: "🌐",
 						title: t("admin.landing.translations_title", "VERTALINGEN"),
 						stat: t("admin.translations.stat", {
-							count: Object.keys(en).reduce((a, k) => a + Object.keys(en[k as any]).length, 0)
+							count: Object.values(en).reduce((a, v) => a + (typeof v === "object" ? Object.keys(v).length : 1), 0)
 						}),
 						desc: t("admin.landing.translations_desc", "Beheer de teksten van de website in alle talen."),
 					},
