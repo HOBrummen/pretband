@@ -18,8 +18,7 @@ vi.mock("@/data/siteData", () => ({
 					id: "test-event-1",
 					date: "3000-12-31", // Future date to pass the filter
 					title: "Test Performance",
-					location: "Test City",
-					status: { nl: "Bevestigd", en: "Confirmed" }
+					location: "Test City"
 				}
 			]
 		}
@@ -28,7 +27,7 @@ vi.mock("@/data/siteData", () => ({
 
 // Mock the child EventCard to avoid testing its internal logic here
 vi.mock("@/components/ui/molecules/EventCard", () => ({
-	EventCard: ({ title, location }: any) => (
+	EventCard: ({ title, location }: { title: string; location: string }) => (
 		<div data-testid="event-card">
 			<span>{title}</span>
 			<span>{location}</span>

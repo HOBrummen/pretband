@@ -4,7 +4,7 @@ interface EventCardProps {
 	date: string;
 	title: string;
 	location: string;
-	status: string;
+	actionText?: string;
 	calendarUrl?: string;
 	variant?: "yellow" | "red";
 	className?: string;
@@ -14,7 +14,7 @@ export function EventCard({
 	date,
 	title,
 	location,
-	status,
+	actionText,
 	calendarUrl,
 	variant = "yellow",
 	className = "",
@@ -67,13 +67,13 @@ export function EventCard({
 							className="text-white text-xl uppercase opacity-60 transition-opacity hover:opacity-100 focus:opacity-100 group-hover:opacity-100 block"
 							title="Download iCal event"
 						>
-							{status}
+							{actionText}
 						</a>
-					) : (
+					) : actionText ? (
 						<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
-							{status}
+							{actionText}
 						</span>
-					)}
+					) : null}
 				</div>
 			</div>
 		</div>

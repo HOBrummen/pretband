@@ -90,7 +90,7 @@ export function Agenda() {
 							})}
 							title={event.title}
 							location={event.location}
-							status={event.status[lang]}
+							actionText={t("agenda.download_ical")}
 							calendarUrl={generateIcsUrl(event)}
 							variant={i % 2 ? "red" : "yellow"}
 						/>

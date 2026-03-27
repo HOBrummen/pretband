@@ -14,12 +14,9 @@ export interface LocalizedString {
 
 export interface AgendaEvent {
 	id: string;
-	variant: "yellow" | "red";
 	date: string;
 	title: string;
 	location: string;
-	time: LocalizedString;
-	status: LocalizedString;
 }
 
 export interface SiteData {

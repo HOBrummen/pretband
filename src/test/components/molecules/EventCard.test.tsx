@@ -7,7 +7,7 @@ describe("EventCard Component", () => {
 		date: "2024-05-20",
 		title: "Test Concert",
 		location: "The Park",
-		status: "Confirmed",
+		actionText: "Confirmed",
 	};
 
 	it("renders event details correctly", () => {
@@ -15,7 +15,7 @@ describe("EventCard Component", () => {
 		expect(screen.getByText(defaultProps.date)).toBeInTheDocument();
 		expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
 		expect(screen.getByText(defaultProps.location)).toBeInTheDocument();
-		expect(screen.getByText(defaultProps.status)).toBeInTheDocument();
+		expect(screen.getByText(defaultProps.actionText)).toBeInTheDocument();
 	});
 
 	it("applies variant classes", () => {

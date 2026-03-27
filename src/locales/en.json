@@ -49,7 +49,8 @@
 		"bg_text": "PARTY PARTY PARTY",
 		"title_1": "OUR",
 		"title_2": "AGENDA",
-		"badge": "Check where we're tearing things down!"
+		"badge": "Check where we're tearing things down!",
+		"download_ical": "Add to calendar"
 	},
 	"contact": {
 		"title_1": "DO YOU DARE",
