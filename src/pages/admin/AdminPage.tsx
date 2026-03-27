@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useData } from "@/context/DataContext";
 import { useToast } from "@/context/ToastContext";
-import { AgendaEditor } from "@/pages/admin/views/AgendaEditor";
 import { LandingScreen } from "@/pages/admin/views/LandingScreen";
 import { LoginScreen } from "@/pages/admin/views/LoginScreen";
-import { MembersEditor } from "@/pages/admin/views/MembersEditor";
-import { TranslationsEditor } from "@/pages/admin/views/TranslationsEditor";
+
+const AgendaEditor = lazy(() => import("@/pages/admin/views/AgendaEditor").then(m => ({ default: m.AgendaEditor })));
+const MembersEditor = lazy(() => import("@/pages/admin/views/MembersEditor").then(m => ({ default: m.MembersEditor })));
+const TranslationsEditor = lazy(() => import("@/pages/admin/views/TranslationsEditor").then(m => ({ default: m.TranslationsEditor })));
 import {
 	persistData,
 	saveAgenda,
@@ -69,8 +70,8 @@ export default function AdminPanel() {
 	};
 
 	const handleSaveTranslations = async (
-		nextNL: Record<string, any>,
-		nextEN: Record<string, any>,
+		nextNL: Record<string, unknown>,
+		nextEN: Record<string, unknown>,
 	) => {
 		if (!token) return;
 		setSyncing(true);
@@ -108,37 +109,45 @@ export default function AdminPanel() {
 			</div>
 		);
 
-	if (view === "agenda")
+	if (view === "agenda" || view === "members" || view === "translations") {
 		return (
-			<AgendaEditor
-				data={data}
-				onChange={handleChange}
-				onSave={handleSaveAgenda}
-				isSyncing={syncing}
-				onBack={() => setView("landing")}
-			/>
+			<Suspense
+				fallback={
+					<div className="flex items-center justify-center min-h-screen">
+						<div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-pret-yellow" />
+					</div>
+				}
+			>
+				{view === "agenda" && (
+					<AgendaEditor
+						data={data}
+						onChange={handleChange}
+						onSave={handleSaveAgenda}
+						isSyncing={syncing}
+						onBack={() => setView("landing")}
+					/>
+				)}
+				{view === "members" && (
+					<MembersEditor
+						data={data}
+						onChange={handleChange}
+						onSave={handleSaveMembers}
+						isSyncing={syncing}
+						onBack={() => setView("landing")}
+					/>
+				)}
+				{view === "translations" && (
+					<TranslationsEditor
+						nl={nl}
+						en={en}
+						onSave={handleSaveTranslations}
+						isSyncing={syncing}
+						onBack={() => setView("landing")}
+					/>
+				)}
+			</Suspense>
 		);
-	if (view === "members")
-		return (
-			<MembersEditor
-				data={data}
-				onChange={handleChange}
-				onSave={handleSaveMembers}
-				isSyncing={syncing}
-				onBack={() => setView("landing")}
-			/>
-		);
-
-	if (view === "translations")
-		return (
-			<TranslationsEditor
-				nl={nl}
-				en={en}
-				onSave={handleSaveTranslations}
-				isSyncing={syncing}
-				onBack={() => setView("landing")}
-			/>
-		);
+	}
 
 	return (
 		<LandingScreen data={data} onSelect={setView} onLogout={handleLogout} />

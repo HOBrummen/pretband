@@ -4,45 +4,16 @@ import { Button } from "@/components/ui/atoms/Button";
 import { Input } from "@/components/ui/atoms/Input";
 import { AdminTopBar } from "@/components/ui/molecules/AdminTopBar";
 import { Search, Download, Globe, ChevronDown } from "lucide-react";
+import { flatten, unflatten } from "@/utils/json";
 
 interface TranslationsEditorProps {
-	nl: Record<string, any>;
-	en: Record<string, any>;
-	onSave: (nl: any, en: any) => void;
+	nl: Record<string, unknown>;
+	en: Record<string, unknown>;
+	onSave: (nl: Record<string, unknown>, en: Record<string, unknown>) => void;
 	isSyncing: boolean;
 	onBack: () => void;
 }
 
-const flatten = (obj: Record<string, any>, prefix = ""): Record<string, string> => {
-	return Object.keys(obj).reduce((acc: Record<string, string>, k) => {
-		const pre = prefix.length ? `${prefix}.` : "";
-		if (
-			typeof obj[k] === "object" &&
-			obj[k] !== null &&
-			!Array.isArray(obj[k])
-		) {
-			const nested = flatten(obj[k], pre + k);
-			Object.assign(acc, nested);
-		} else {
-			acc[pre + k] = obj[k];
-		}
-		return acc;
-	}, {});
-};
-
-const unflatten = (obj: Record<string, string>): Record<string, any> => {
-	const result: Record<string, any> = {};
-	for (const i in obj) {
-		const keys = i.split(".");
-		keys.reduce((r: any, a, j) => {
-			if (!r[a]) {
-				r[a] = keys.length - 1 === j ? obj[i] : {};
-			}
-			return r[a];
-		}, result);
-	}
-	return result;
-};
 
 export function TranslationsEditor({
 	nl,

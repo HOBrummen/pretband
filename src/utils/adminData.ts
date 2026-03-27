@@ -69,7 +69,7 @@ export async function fetchTranslations(token?: string) {
 
 export async function saveTranslations(
 	token: string,
-	data: { nl: any; en: any },
+	data: { nl: unknown; en: unknown },
 ) {
 	const res = await fetch(TRANSLATIONS_URL, {
 		method: "PUT",
