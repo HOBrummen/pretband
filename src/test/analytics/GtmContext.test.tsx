@@ -10,7 +10,7 @@ describe("GtmContext", () => {
 	it("throws if used outside provider", () => {
 		const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 		expect(() => renderHook(() => useGtmContext())).toThrow(
-			"useGtmContext must be used within a GtmProvider"
+			"useGtmContext must be used within a GtmProvider",
 		);
 		consoleSpy.mockRestore();
 	});

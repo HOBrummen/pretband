@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { Highlights } from "@/components/Highlights";
+import { Highlights } from "@/components/sections/Highlights";
 
 vi.mock("react-i18next", () => ({
 	useTranslation: () => ({
@@ -11,12 +11,15 @@ vi.mock("react-i18next", () => ({
 describe("Highlights Component", () => {
 	it("renders the highlights section and iframe", () => {
 		render(<Highlights />);
-		
+
 		expect(screen.getByText("highlights.title")).toBeInTheDocument();
 		expect(screen.getByText("highlights.description")).toBeInTheDocument();
-		
+
 		const iframe = screen.getByTitle("highlights.watch_video");
 		expect(iframe).toBeInTheDocument();
-		expect(iframe).toHaveAttribute("src", "https://www.youtube.com/embed/98VH-CuOSvI");
+		expect(iframe).toHaveAttribute(
+			"src",
+			"https://www.youtube.com/embed/98VH-CuOSvI",
+		);
 	});
 });

@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { publicEnv } from "../config/publicEnv";
-import { useEasterEggs } from "../context/EasterEggContext";
-import { useRecaptchaV3 } from "../security/useRecaptchaV3";
-import { Badge } from "./ui/atoms/Badge";
-import { Button } from "./ui/atoms/Button";
-import { Decoration } from "./ui/atoms/Decoration";
-import { Heading } from "./ui/atoms/Heading";
-import { Input } from "./ui/atoms/Input";
-import { Textarea } from "./ui/atoms/Textarea";
+import { Badge } from "@/components/ui/atoms/Badge";
+import { Button } from "@/components/ui/atoms/Button";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import { Heading } from "@/components/ui/atoms/Heading";
+import { Input } from "@/components/ui/atoms/Input";
+import { Textarea } from "@/components/ui/atoms/Textarea";
+import { publicEnv } from "../../config/publicEnv";
+import { useEasterEggs } from "../../context/EasterEggContext";
+import { useRecaptchaV3 } from "../../security/useRecaptchaV3";
 
 export function Contact() {
 	const { t } = useTranslation();

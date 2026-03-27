@@ -1,12 +1,13 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { normalizeLang, siteData } from "../data/siteData";
-import { Badge } from "./ui/atoms/Badge";
-import { Decoration } from "./ui/atoms/Decoration";
-import { Heading } from "./ui/atoms/Heading";
-import { EventCard } from "./ui/molecules/EventCard";
+import { Badge } from "@/components/ui/atoms/Badge";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import { Heading } from "@/components/ui/atoms/Heading";
+import { EventCard } from "@/components/ui/molecules/EventCard";
+import { useData } from "@/context/DataContext";
+import { normalizeLang } from "@/utils/normalizeLang";
 
-function generateIcsUrl(event: typeof siteData.agenda.events[0]) {
+function generateIcsUrl(event: AgendaEvent) {
 	const start = event.date.replace(/-/g, "");
 	const nextDay = new Date(event.date);
 	nextDay.setDate(nextDay.getDate() + 1);
@@ -26,17 +27,20 @@ function generateIcsUrl(event: typeof siteData.agenda.events[0]) {
 		`SUMMARY:Pretband - ${event.title}`,
 		`LOCATION:${event.location}`,
 		"END:VEVENT",
-		"END:VCALENDAR"
+		"END:VCALENDAR",
 	].join("\r\n");
 
 	return `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
 }
 
-
 export function Agenda() {
 	const { t, i18n } = useTranslation();
+	const { data } = useData();
 	const lang = useMemo(() => normalizeLang(i18n.language), [i18n.language]);
-	const events = siteData.agenda.events.filter(event => new Date(event.date) > new Date());
+	const events =
+		data?.agenda.events.filter(
+			(event: AgendaEvent) => new Date(event.date) > new Date(),
+		) || [];
 
 	return (
 		<section id="agenda" className="relative py-40">
@@ -81,12 +85,12 @@ export function Agenda() {
 				</div>
 
 				<div className="space-y-6">
-					{events.map((event, i) => (
+					{events.map((event: AgendaEvent, i: number) => (
 						<EventCard
 							key={event.id}
 							date={new Date(event.date).toLocaleDateString(lang, {
 								day: "numeric",
-								month: "long"
+								month: "long",
 							})}
 							title={event.title}
 							location={event.location}

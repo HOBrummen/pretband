@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "react-i18next";
-import logo from "../assets/images/logo.png";
-import { publicEnv } from "../config/publicEnv";
-import { Decoration } from "./ui/atoms/Decoration";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import logo from "../../assets/images/logo.png";
+import { publicEnv } from "../../config/publicEnv";
 
 export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 	const { t } = useTranslation();

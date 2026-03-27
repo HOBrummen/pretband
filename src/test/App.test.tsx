@@ -42,7 +42,7 @@ describe("App", () => {
 						</Suspense>
 					</GtmProvider>
 				</AnalyticsProvider>
-			</SecurityProvider>
+			</SecurityProvider>,
 		);
 		expect(document.getElementById("main-content")).toBeInTheDocument();
 	});

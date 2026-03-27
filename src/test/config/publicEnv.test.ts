@@ -29,9 +29,17 @@ describe("publicEnv", () => {
 	});
 
 	it("string env vars are either a non-empty string or undefined", () => {
-		for (const key of ["basinFormId", "recaptchaSiteKey", "instagramUrl", "tiktokUrl", "gtmTagId"] as const) {
+		for (const key of [
+			"basinFormId",
+			"recaptchaSiteKey",
+			"instagramUrl",
+			"tiktokUrl",
+			"gtmTagId",
+		] as const) {
 			const val = publicEnv[key];
-			expect(val === undefined || (typeof val === "string" && val.length > 0)).toBe(true);
+			expect(
+				val === undefined || (typeof val === "string" && val.length > 0),
+			).toBe(true);
 		}
 	});
 });

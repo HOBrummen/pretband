@@ -6,8 +6,5 @@
 		"allowSyntheticDefaultImports": true,
 		"outDir": "./node_modules/.cache/tsc-node"
 	},
-	"include": [
-		"vite.config.ts",
-		"vite-plugins/**/*"
-	]
+	"include": ["vite.config.ts", "vite-plugins/**/*"]
 }

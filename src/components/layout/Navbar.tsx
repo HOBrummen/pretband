@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import navbarLogo from "../assets/images/logo.png";
-import { FEATURE_FLAGS } from "../config/featureFlags";
-import { Button } from "./ui/atoms/Button";
+import { Button } from "@/components/ui/atoms/Button";
+import navbarLogo from "../../assets/images/logo.png";
+import { FEATURE_FLAGS } from "../../config/featureFlags";
 
 export function Navbar() {
 	const { t, i18n } = useTranslation();

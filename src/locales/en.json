@@ -100,5 +100,76 @@
 		"boundary_title": "Oops! Something went wrong.",
 		"boundary_body": "Don't worry, we're aware. Try refreshing the page.",
 		"boundary_button": "REFRESH PAGE"
+	},
+	"admin": {
+		"loading": "Loading...",
+		"login": {
+			"title": "ADMIN",
+			"subtitle": "Band Admin Panel",
+			"password_label": "Password",
+			"password_error": "Incorrect password",
+			"login_button": "Login →"
+		},
+		"landing": {
+			"title": "ADMIN PANEL",
+			"subtitle": "What would you like to edit?",
+			"save_cloud": "🚀 Save to Cloud",
+			"saving": "⏳ Saving...",
+			"export_json": "↓ Export JSON",
+			"logout": "Logout",
+			"agenda_title": "AGENDA",
+			"agenda_stat": "{{count}} events",
+			"agenda_desc": "Manage events, dates and locations.",
+			"members_title": "MEMBERS",
+			"members_stat": "{{members}} members · {{sections}} sections",
+			"members_desc": "Add or remove members by instrument section.",
+			"edit_button": "Edit →"
+		},
+		"agenda": {
+			"title": "AGENDA",
+			"stat": "{{count}} events",
+			"save_cloud": "☁ Cloud",
+			"new_button": "+ New",
+			"fields": {
+				"date": "Date",
+				"title": "Title",
+				"location": "Location",
+				"id": "ID (Unique)"
+			},
+			"new_event_placeholder": "NEW EVENT",
+			"delete_button": "Delete",
+			"empty": "No events.",
+			"deletion_notice": "Events are automatically deleted 30 days after the event date.",
+			"days_until_deletion_one": "Deletion in 1 day",
+			"days_until_deletion_other": "Deletion in {{count}} days"
+		},
+		"members": {
+			"title": "MEMBERS",
+			"stat": "{{members}} members • {{sections}} sections",
+			"save_cloud": "Save to Cloud",
+			"new_section": "Section",
+			"section_key": "Section Key",
+			"section_stat": "{{count}} members",
+			"no_members": "No members yet",
+			"add_name_placeholder": "Add name...",
+			"add_button": "Add",
+			"delete_section": "Section",
+			"remove_aria": "Remove {{name}}"
+		},
+		"toasts": {
+			"members_success": "Members saved to the cloud!",
+			"agenda_success": "Agenda saved to the cloud!",
+			"all_success": "Everything saved to the cloud!",
+			"translations_success": "Translations saved to the cloud!",
+			"save_error": "Save failed."
+		},
+		"translations": {
+			"title": "TRANSLATIONS",
+			"stat": "{{count}} keys",
+			"search_placeholder": "Search by key or text...",
+			"no_results": "No translations found",
+			"expand_all": "Expand all",
+			"collapse_all": "Collapse all"
+		}
 	}
 }

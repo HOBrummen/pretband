@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { Contact } from "@/components/Contact";
+import { Contact } from "@/components/sections/Contact";
 
 vi.mock("react-i18next", () => ({
 	useTranslation: () => ({
@@ -13,7 +13,7 @@ vi.mock("@/config/publicEnv", () => ({
 	publicEnv: {
 		basinFormId: "test-form-id",
 		recaptchaSiteKey: "test-site-key",
-	}
+	},
 }));
 
 vi.mock("@/context/EasterEggContext", () => ({
@@ -37,14 +37,22 @@ window.IntersectionObserver = class {
 describe("Contact Component", () => {
 	it("renders the contact form", () => {
 		render(<Contact />);
-		
+
 		expect(screen.getByText("contact.title_1")).toBeInTheDocument();
 		expect(screen.getByText("contact.title_2")).toBeInTheDocument();
-		
-		expect(screen.getByLabelText("contact.form.name_label")).toBeInTheDocument();
-		expect(screen.getByLabelText("contact.form.email_label")).toBeInTheDocument();
-		expect(screen.getByLabelText("contact.form.message_label")).toBeInTheDocument();
-		
-		expect(screen.getByRole("button", { name: "contact.button" })).toBeInTheDocument();
+
+		expect(
+			screen.getByLabelText("contact.form.name_label"),
+		).toBeInTheDocument();
+		expect(
+			screen.getByLabelText("contact.form.email_label"),
+		).toBeInTheDocument();
+		expect(
+			screen.getByLabelText("contact.form.message_label"),
+		).toBeInTheDocument();
+
+		expect(
+			screen.getByRole("button", { name: "contact.button" }),
+		).toBeInTheDocument();
 	});
 });

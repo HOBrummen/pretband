@@ -100,5 +100,75 @@
 		"boundary_title": "Oeps! Er ging iets mis.",
 		"boundary_body": "Geen zorgen, we zijn op de hoogte. Probeer de pagina te verversen.",
 		"boundary_button": "PAGINA VERNIEUWEN"
+	},
+	"admin": {
+		"loading": "Laden...",
+		"login": {
+			"title": "BEHEER",
+			"subtitle": "Band Admin Paneel",
+			"password_label": "Wachtwoord",
+			"password_error": "Onjuist wachtwoord",
+			"login_button": "Inloggen"
+		},
+		"landing": {
+			"title": "BEHEER PANEEL",
+			"subtitle": "Wat wil je aanpassen?",
+			"save_cloud": "Opslaan in Cloud",
+			"saving": "Opslaan...",
+			"export_json": "Export JSON",
+			"logout": "Uitloggen",
+			"agenda_title": "AGENDA",
+			"agenda_stat": "{{count}} evenementen",
+			"agenda_desc": "Beheer evenementen, datums en locaties.",
+			"members_title": "LEDEN",
+			"members_stat": "{{members}} leden • {{sections}} secties",
+			"members_desc": "Voeg leden toe of verwijder ze per instrument-sectie.",
+			"edit_button": "Bewerken"
+		},
+		"agenda": {
+			"title": "AGENDA",
+			"stat": "{{count}} evenementen",
+			"save_cloud": "Wolk",
+			"new_button": "Nieuw evenement",
+			"fields": {
+				"date": "Datum",
+				"title": "Titel",
+				"location": "Locatie",
+				"id": "ID (Uniek)"
+			},
+			"new_event_placeholder": "NIEUW EVENEMENT",
+			"delete_button": "Verwijderen",
+			"empty": "Geen evenementen.",
+			"deletion_notice": "Evenementen worden 30 dagen na de evenementdatum automatisch verwijderd.",
+			"days_until_deletion_one": "Verwijdering over 1 dag",
+			"days_until_deletion_other": "Verwijdering over {{count}} dagen"
+		},
+		"members": {
+			"title": "LEDEN",
+			"stat": "{{members}} leden · {{sections}} secties",
+			"save_cloud": "Opslaan naar Cloud",
+			"new_section": "Nieuwe sectie",
+			"section_key": "Sectie Key (uniek)",
+			"section_stat": "{{count}} leden",
+			"no_members": "Nog geen leden",
+			"add_name_placeholder": "Naam toevoegen…",
+			"delete_section": "Verwijder sectie",
+			"remove_aria": "Verwijder {{name}}"
+		},
+		"toasts": {
+			"members_success": "Leden opgeslagen in de cloud!",
+			"agenda_success": "Agenda opgeslagen in de cloud!",
+			"all_success": "Alles opgeslagen in de cloud!",
+			"translations_success": "Vertalingen opgeslagen in de cloud!",
+			"save_error": "Opslaan mislukt."
+		},
+		"translations": {
+			"title": "VERTALINGEN",
+			"stat": "{{count}} sleutels",
+			"search_placeholder": "Zoek op sleutel of tekst...",
+			"no_results": "Geen vertalingen gevonden",
+			"expand_all": "Alles uitklappen",
+			"collapse_all": "Alles inklappen"
+		}
 	}
 }

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { About } from "@/components/About";
+import { About } from "@/components/sections/About";
 
 vi.mock("react-i18next", () => ({
 	useTranslation: () => ({
@@ -11,7 +11,7 @@ vi.mock("react-i18next", () => ({
 describe("About Component", () => {
 	it("renders the about section", () => {
 		render(<About />);
-		
+
 		expect(screen.getByAltText("The Band")).toBeInTheDocument();
 		expect(screen.getByText("about.title_1")).toBeInTheDocument();
 		expect(screen.getByText("about.title_2")).toBeInTheDocument();

@@ -1,28 +1,36 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
-import { Agenda } from "@/components/Agenda";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { Agenda } from "@/components/sections/Agenda";
 
 vi.mock("react-i18next", () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
-		i18n: { language: "nl" }
+		i18n: { language: "nl" },
+	}),
+}));
+
+vi.mock("@/context/DataContext", () => ({
+	useData: () => ({
+		data: {
+			agenda: {
+				events: [
+					{
+						id: "test-event-1",
+						date: "3000-12-31", // Future date to pass the filter
+						title: "Test Performance",
+						location: "Test City",
+					},
+				],
+			},
+		},
+		loading: false,
+		error: null,
+		refetch: vi.fn(),
 	}),
 }));
 
 vi.mock("@/data/siteData", () => ({
 	normalizeLang: (lang: string) => lang,
-	siteData: {
-		agenda: {
-			events: [
-				{
-					id: "test-event-1",
-					date: "3000-12-31", // Future date to pass the filter
-					title: "Test Performance",
-					location: "Test City"
-				}
-			]
-		}
-	}
 }));
 
 // Mock the child EventCard to avoid testing its internal logic here
@@ -32,7 +40,7 @@ vi.mock("@/components/ui/molecules/EventCard", () => ({
 			<span>{title}</span>
 			<span>{location}</span>
 		</div>
-	)
+	),
 }));
 
 describe("Agenda Component", () => {
@@ -47,10 +55,10 @@ describe("Agenda Component", () => {
 
 	it("renders the agenda section and future events", () => {
 		render(<Agenda />);
-		
+
 		expect(screen.getByText("agenda.title_1")).toBeInTheDocument();
 		expect(screen.getByText("agenda.title_2")).toBeInTheDocument();
-		
+
 		const eventCards = screen.getAllByTestId("event-card");
 		expect(eventCards).toHaveLength(1);
 		expect(screen.getByText("Test Performance")).toBeInTheDocument();

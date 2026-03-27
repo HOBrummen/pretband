@@ -11,7 +11,7 @@ describe("useRecaptchaV3", () => {
 	it("returns an execute function", () => {
 		const { result } = renderHook(
 			() => useRecaptchaV3("test-key", false), // disabled so it doesn't try to load scripts
-			{ wrapper }
+			{ wrapper },
 		);
 		expect(typeof result.current.execute).toBe("function");
 	});

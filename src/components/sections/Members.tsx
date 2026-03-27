@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { siteData } from "../data/siteData";
-import { Decoration } from "./ui/atoms/Decoration";
-import { Heading } from "./ui/atoms/Heading";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import { Heading } from "@/components/ui/atoms/Heading";
+import { useData } from "@/context/DataContext";
 
 export function Members() {
 	const { t } = useTranslation();
-
-	const sections = siteData.members.sections;
+	const { data } = useData();
+	const sections: MembersSection[] = data?.members.sections || [];
 
 	return (
 		<section id="leden" className="relative py-32">

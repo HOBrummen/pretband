@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import pretbandImg from "../assets/images/pretband.png";
-import { Decoration } from "./ui/atoms/Decoration";
-import { Heading } from "./ui/atoms/Heading";
-import { FeatureCard } from "./ui/molecules/FeatureCard";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import { Heading } from "@/components/ui/atoms/Heading";
+import { FeatureCard } from "@/components/ui/molecules/FeatureCard";
+import pretbandImg from "../../assets/images/pretband.png";
 
 export function About() {
 	const { t } = useTranslation();

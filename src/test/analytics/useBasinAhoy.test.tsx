@@ -12,10 +12,9 @@ function wrapper({ children }: { children: React.ReactNode }) {
 
 describe("useBasinAhoy", () => {
 	it("does not attempt to load when disabled", () => {
-		const { result } = renderHook(
-			() => useBasinAhoy("test-form", false),
-			{ wrapper }
-		);
+		const { result } = renderHook(() => useBasinAhoy("test-form", false), {
+			wrapper,
+		});
 		// The hook returns nothing; we just verify it doesn't throw
 		expect(result.current).toBeUndefined();
 	});

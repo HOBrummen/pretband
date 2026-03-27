@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Decoration } from "./ui/atoms/Decoration";
-import { Heading } from "./ui/atoms/Heading";
+import { Decoration } from "@/components/ui/atoms/Decoration";
+import { Heading } from "@/components/ui/atoms/Heading";
 
 export function Highlights() {
 	const { t } = useTranslation();

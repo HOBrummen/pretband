@@ -1,16 +1,19 @@
 import confetti from "canvas-confetti";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navbar } from "@/components/layout/Navbar";
+import { Hero } from "@/components/sections/Hero";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
-import { Hero } from "./components/Hero";
-import { Navbar } from "./components/Navbar";
 import { Button } from "./components/ui/atoms/Button";
 import { Heading } from "./components/ui/atoms/Heading";
 import { BackgroundLayer } from "./components/ui/BackgroundLayer";
 import { ErrorBoundary } from "./components/ui/molecules/ErrorBoundary";
 import { FEATURE_FLAGS } from "./config/featureFlags";
 import { publicEnv } from "./config/publicEnv";
+import { DataProvider } from "./context/DataContext";
 import { EasterEggProvider, useEasterEggs } from "./context/EasterEggContext";
+import { ToastProvider } from "./context/ToastContext";
 
 declare global {
 	interface Window {
@@ -27,25 +30,27 @@ declare global {
 
 // Lazy load components that are not in the initial viewport
 const About = lazy(() =>
-	import("./components/About").then((m) => ({ default: m.About })),
+	import("./components/sections/About").then((m) => ({ default: m.About })),
 );
 const Agenda = lazy(() =>
-	import("./components/Agenda").then((m) => ({ default: m.Agenda })),
+	import("./components/sections/Agenda").then((m) => ({ default: m.Agenda })),
 );
 const Contact = lazy(() =>
-	import("./components/Contact").then((m) => ({ default: m.Contact })),
+	import("./components/sections/Contact").then((m) => ({ default: m.Contact })),
 );
 const Members = lazy(() =>
-	import("./components/Members").then((m) => ({ default: m.Members })),
+	import("./components/sections/Members").then((m) => ({ default: m.Members })),
 );
 const Highlights = lazy(() =>
-	import("./components/Highlights").then((m) => ({ default: m.Highlights })),
+	import("./components/sections/Highlights").then((m) => ({
+		default: m.Highlights,
+	})),
 );
 const Footer = lazy(() =>
-	import("./components/Footer").then((m) => ({ default: m.Footer })),
+	import("./components/layout/Footer").then((m) => ({ default: m.Footer })),
 );
 const Gallery = lazy(() =>
-	import("./components/Gallery").then((m) => ({ default: m.Gallery })),
+	import("./components/sections/Gallery").then((m) => ({ default: m.Gallery })),
 );
 
 function SectionLoader({ height = "h-40" }: { height?: string }) {
@@ -111,7 +116,11 @@ function AchievementOverlay() {
 	);
 }
 
-function App() {
+const AdminPanel = lazy(() =>
+	import("./pages/admin/AdminPage").then((m) => ({ default: m.default })),
+);
+
+function PublicSite() {
 	const { t, i18n } = useTranslation();
 
 	const basinFormId = publicEnv.basinFormId;
@@ -154,7 +163,7 @@ function App() {
 		}
 	}, []);
 
-	const launchConfetti = (): void => {
+	const launchConfetti = useCallback((): void => {
 		// Respect prefers-reduced-motion
 		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 			return;
@@ -167,7 +176,7 @@ function App() {
 			origin: { y: 0.6 },
 			colors: colors,
 		});
-	};
+	}, []);
 
 	useEffect(() => {
 		// Fire initial confetti on load
@@ -178,16 +187,15 @@ function App() {
 		return () => {
 			clearTimeout(timer);
 		};
-	});
+	}, [launchConfetti]);
 
 	return (
-		<EasterEggProvider>
-			<AchievementOverlay />
+		<>
 			<BackgroundLayer />
 			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
 				{/* Party Backdrop */}
 				<div
-					className="pointer-events-none fixed inset-0 z-100 bg-noise"
+					className="pointer-events-none fixed inset-0 z-[100] bg-noise"
 					aria-hidden="true"
 				></div>
 				<div
@@ -236,7 +244,32 @@ function App() {
 					<Footer onOpenPrivacy={() => window.Cookiebot?.renew()} />
 				</Suspense>
 			</div>
-		</EasterEggProvider>
+		</>
+	);
+}
+
+function App() {
+	return (
+		<DataProvider>
+			<ToastProvider>
+				<EasterEggProvider>
+					<AchievementOverlay />
+					<BrowserRouter>
+						<Routes>
+							<Route path="/" element={<PublicSite />} />
+							<Route
+								path="/admin/*"
+								element={
+									<Suspense fallback={<SectionLoader height="h-screen" />}>
+										<AdminPanel />
+									</Suspense>
+								}
+							/>
+						</Routes>
+					</BrowserRouter>
+				</EasterEggProvider>
+			</ToastProvider>
+		</DataProvider>
 	);
 }
 

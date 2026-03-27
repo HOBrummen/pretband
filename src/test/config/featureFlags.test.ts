@@ -11,7 +11,9 @@ vi.mock("@/config/publicEnv", () => ({
 	},
 }));
 
-const { FEATURE_FLAGS, isFeatureEnabled } = await import("@/config/featureFlags");
+const { FEATURE_FLAGS, isFeatureEnabled } = await import(
+	"@/config/featureFlags"
+);
 
 describe("featureFlags", () => {
 	it("maps publicEnv values to FEATURE_FLAGS", () => {

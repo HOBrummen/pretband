@@ -1,6 +1,9 @@
 import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { SecurityProvider, useSecurityContext } from "@/security/SecurityContext";
+import {
+	SecurityProvider,
+	useSecurityContext,
+} from "@/security/SecurityContext";
 
 function wrapper({ children }: { children: React.ReactNode }) {
 	return <SecurityProvider>{children}</SecurityProvider>;
@@ -10,7 +13,7 @@ describe("SecurityContext", () => {
 	it("throws if used outside provider", () => {
 		const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 		expect(() => renderHook(() => useSecurityContext())).toThrow(
-			"useSecurityContext must be used within a SecurityProvider"
+			"useSecurityContext must be used within a SecurityProvider",
 		);
 		consoleSpy.mockRestore();
 	});

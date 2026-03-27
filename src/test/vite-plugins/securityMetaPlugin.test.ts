@@ -7,7 +7,9 @@ type TagDescriptor = { tag: string; attrs: Record<string, string> };
 function callTransformIndexHtml(plugin: Plugin) {
 	const hook = plugin.transformIndexHtml;
 	const fn = typeof hook === "function" ? hook : (hook as any).handler;
-	return (fn as (html: string) => TagDescriptor[])("<html><head></head><body></body></html>");
+	return (fn as (html: string) => TagDescriptor[])(
+		"<html><head></head><body></body></html>",
+	);
 }
 
 describe("securityMetaPlugin", () => {
@@ -28,13 +30,15 @@ describe("securityMetaPlugin", () => {
 
 		expect(Array.isArray(tags)).toBe(true);
 		const cspTag = tags.find(
-			(t) => t.tag === "meta" && t.attrs?.["http-equiv"] === "Content-Security-Policy"
+			(t) =>
+				t.tag === "meta" &&
+				t.attrs?.["http-equiv"] === "Content-Security-Policy",
 		);
 		expect(cspTag).toBeDefined();
 		expect(cspTag?.attrs.content).toContain("default-src");
 
 		const referrerTag = tags.find(
-			(t) => t.tag === "meta" && t.attrs?.name === "referrer"
+			(t) => t.tag === "meta" && t.attrs?.name === "referrer",
 		);
 		expect(referrerTag).toBeDefined();
 		expect(referrerTag?.attrs.content).toBe("strict-origin-when-cross-origin");
